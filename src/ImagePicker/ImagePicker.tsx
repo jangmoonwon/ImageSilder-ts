@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import styled from "styled-components";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { images } from "../data/Images";
+import { Container, FillImage, PickerWrapper, Arrow, Picker } from "./styles";
 
 const ImagePicker = (): JSX.Element => {
   const [pickers, setPickers] = useState<JSX.Element[]>([]);
@@ -87,51 +87,3 @@ const ImagePicker = (): JSX.Element => {
 };
 
 export default ImagePicker;
-
-const Container = styled.div`
-  width: 500px;
-  height: 500px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const FillImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const PickerWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  bottom: 10px;
-  transform: translate(-50%, -10px);
-  display: flex;
-`;
-
-const Arrow = styled.div<{ isLeft: boolean }>`
-  width: 50px;
-  height: 50px;
-  background-color: gray;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  ${(props) => (props.isLeft ? "left: 5px" : "right: 5px")};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-`;
-
-const Picker = styled.div<{ background: string }>`
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: ${(props) => props.background};
-  margin: 0 6px;
-  cursor: pointer;
-`;
