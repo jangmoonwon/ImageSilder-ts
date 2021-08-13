@@ -9,6 +9,8 @@ const ImagePicker = (): JSX.Element => {
 
   const [pickIndex, setPickIndex] = useState<number>(0);
   // 기본으로 0번째 인덱스에 위치한 사진을 렌더링
+  const [imageIndex, setImageIndex] = useState<number>(0);
+  // 이미지 순서를 자동으로 이동하는 imageIndex 배열
 
   // 왼쪽 화살표 클릭
   const handlePrevClick = useCallback((): void => {
@@ -52,7 +54,6 @@ const ImagePicker = (): JSX.Element => {
   );
 
   useEffect(() => {
-    // 이미지의 갯수만큼 pickers JSX.Element[] 배열 state에 생성하여 넣어준다.
     setPickers(
       images.map((_: string, idx: number) => {
         return (
@@ -66,6 +67,17 @@ const ImagePicker = (): JSX.Element => {
       })
     );
   }, [onPickIndex, pickIndex]);
+
+  useEffect(() => {
+    setImageIndex(0);
+    const imageInterval = setInterval(() => {
+      handlePrevClick();
+      handleNextClick();
+    }, 5000);
+    return () => {
+      clearInterval(imageInterval);
+    };
+  }, [pickers]);
 
   return (
     <Container>
