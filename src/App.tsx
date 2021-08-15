@@ -1,10 +1,12 @@
-import React from 'react';
-import ImagePicker from './ImagePicker/ImagePicker';
+import React from "react";
+import ImagePicker from "./components/ImagePicker/ImagePicker";
+import { GlobalStyle } from "./globals/styles";
 
 function App() {
   return (
     <div>
-      <ImagePicker />
+      <GlobalStyle />
+     <ImagePicker />
     </div>
   );
 }

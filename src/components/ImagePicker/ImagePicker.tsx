@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import { images } from "../data/Images";
+import { images } from "../../data/Images";
 import { Container, FillImage, PickerWrapper, Arrow, Picker } from "./styles";
 
 const ImagePicker = (): JSX.Element => {
   const [pickers, setPickers] = useState<JSX.Element[]>([]);
   // 이미지 순서를 클릭하여 이동하는 pickers 배열
-
   const [pickIndex, setPickIndex] = useState<number>(0);
   // 기본으로 0번째 인덱스에 위치한 사진을 렌더링
   const [imageIndex, setImageIndex] = useState<number>(0);

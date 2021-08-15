@@ -10,8 +10,8 @@ type BackgroundProps = {
 
 
 export const Container = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 1000px;
+  height: 600px;
   position: fixed;
   top: 50%;
   left: 50%;
